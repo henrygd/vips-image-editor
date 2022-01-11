@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: VIPS image editor (henrygd)
+Plugin Name: VIPS image editor henrygd
 Plugin URI: https://github.com/henrygd/vips-image-editor
 Description: High performance WordPress image processing with VIPS
 Version: 1.1.1
