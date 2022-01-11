@@ -389,11 +389,17 @@ class Image_Editor_Vips extends \WP_Image_Editor
             $optimize_scans = apply_filters('vips_ie_optimize_scans', false);
 
             $parameters = [
-                'Q' => $this->get_quality(),
+                'Q' => 73,
                 'interlace' => $interlace,
                 'trellis_quant' => $trellis_quant,
                 'overshoot_deringing' => $overshoot_deringing,
                 'optimize_scans' => $optimize_scans,
+            ];
+        } else {
+            // png parameters
+            $parameters = [
+                'palette' => true,
+                'Q' => 98
             ];
         }
 
