@@ -163,20 +163,7 @@ class Image_Editor_Vips extends \WP_Image_Editor
 
             $resized = null;
 
-            if (version_compare(vips_version(), '8.6.0', '>=') && apply_filters('vips_ie_thumbnail', true) === true) {
-                // Vips thumbnail() is faster than resizing, let's use it if it's available
-
-                $scale = max($this->size['width'] / $src_w, $this->size['height'] / $src_h);
-
-                $target_w = ceil($dst_w * $scale);
-                $target_h = ceil($dst_h * $scale);
-
-                $resized = $this->image->thumbnail_image($target_w, [
-                    'height' => $target_h,
-                ]);
-            } else {
-                $resized = $this->image->resize(max($dst_h / $src_h, $dst_w / $src_w));
-            }
+            $resized = $this->image->resize(max($dst_h / $src_h, $dst_w / $src_w));
 
             $scale = max($dst_w / $src_w, $dst_h / $src_h);
 
@@ -394,12 +381,16 @@ class Image_Editor_Vips extends \WP_Image_Editor
                 'trellis_quant' => $trellis_quant,
                 'overshoot_deringing' => $overshoot_deringing,
                 'optimize_scans' => $optimize_scans,
+                'strip' => true,
             ];
         } else {
             // png parameters
             $parameters = [
                 'palette' => true,
-                'Q' => 98
+                'Q' => 99,
+                'compression' => 8,
+                'filter' => 8,
+                'strip' => true
             ];
         }
 

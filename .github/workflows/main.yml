@@ -9,19 +9,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Build project
         run: |
           composer install --ignore-platform-reqs --no-dev --optimize-autoloader
           mkdir build
+
       - name: Create artifact
-        uses: montudor/action-zip@v0.1.0
+        uses: montudor/action-zip@v1
         with:
           args: zip -X -r build/vips-image-editor.zip . -x *.git* node_modules/\* .* "*/\.*" composer.* build**
+
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: vips-image-editor
           path: build/vips-image-editor.zip
+
       - name: Upload to release
         uses: JasonEtco/upload-to-release@master
         with:

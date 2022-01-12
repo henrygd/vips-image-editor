@@ -1,12 +1,10 @@
 <?php
 
 /*
-Plugin Name: VIPS image editor henrygd
+Plugin Name: FTL VIPS image editor
 Plugin URI: https://github.com/henrygd/vips-image-editor
 Description: High performance WordPress image processing with VIPS
-Version: 1.1.1
-Author: Forked from Johannes Siipola
-Author URI: https://siipo.la
+Version: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */

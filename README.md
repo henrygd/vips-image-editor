@@ -2,6 +2,8 @@
 
 High performance WordPress image processing with [VIPS](https://libvips.github.io/libvips/).
 
+Forked from https://github.com/CreunaFI/vips-image-editor (thanks!)
+
 ## Requirements
 
 - PHP 7 or later
